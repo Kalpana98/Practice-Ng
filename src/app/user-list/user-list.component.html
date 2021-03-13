@@ -1,0 +1,43 @@
+<p-table [columns]="userCols" [value]="users">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        <!-- <div *ngIf="col.field === 'name'">
+          <a routerLink="/user-detail" [queryParams]="{ id: rowData['id'] }">{{ rowData[col.field] }}</a>
+        </div> -->
+        <div *ngIf="col.field === 'name'" (click)="onUserClick(rowData['id'])">
+          <a href="javascript:void(0)">{{ rowData[col.field] }}</a>
+        </div>
+
+        <div *ngIf="col.field != 'name'">
+          {{ rowData[col.field] }}
+        </div>
+      </td>
+    </tr>
+    <button
+      pButton
+      type="button"
+      label="Delete"
+      (click)="onDelete(rowData['id'])"
+      class="p-button-danger p-button-rounded"
+    ></button>
+    <!-- onDelete(rowData['id'])  onUserReceived($event)-->
+  </ng-template>
+</p-table>
+
+<br />
+
+<div style="height: 400px; width: 400px; border: 1px solid red">
+  <app-user-detail
+    [userId]="selectedUserId"
+    (userNameEmit)="onUserReceived($event)"
+  >
+  </app-user-detail>
+</div>

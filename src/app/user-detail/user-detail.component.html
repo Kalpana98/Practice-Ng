@@ -1,0 +1,8 @@
+<p>user-detail works!</p>
+
+<div *ngFor="let user of users">
+  <div *ngIf="user.id === userId">
+    <h3>Below are the details of User Id: {{ user.id }}</h3>
+    <p>{{ user.detail }}</p>
+  </div>
+</div>
