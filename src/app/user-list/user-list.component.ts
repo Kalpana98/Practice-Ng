@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { users } from '../user-list';
+
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-user-list',
@@ -7,35 +8,39 @@ import { users } from '../user-list';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  constructor() {}
+  constructor(private usersService: UsersService) {}
 
-  users: any[] = [];
+  users: any = [];
+
   userCols: any[] = [];
-
   selectedUserId: any = null;
 
   ngOnInit(): void {
+    this.usersService.getAllUsers().subscribe((users) => {
+      // console.log(users);
+      this.users = users;
+    });
+
     this.userCols = [
+      {
+        field: 'id',
+        header: 'ID',
+      },
       {
         field: 'name',
         header: 'User Name',
       },
       {
-        field: 'isActive',
-        header: '?',
-      },
-      {
-        field: 'gender',
-        header: 'Gender',
+        field: 'phone',
+        header: 'Contact',
       },
     ];
-    this.users = users;
   }
 
   onDelete(id: number) {
     console.log('Deleted!');
 
-    let i = this.users.findIndex((e) => e.id === id);
+    let i = this.users.findIndex((e: any) => e.id === id);
     if (i !== -1) {
       this.users.splice(i, 1);
     }

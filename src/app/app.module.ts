@@ -11,6 +11,9 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { TabViewModule } from 'primeng/tabview';
+import { HttpClientModule } from '@angular/common/http';
+import { UsersService } from './users.service';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,10 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ButtonModule,
     ToggleButtonModule,
     MultiSelectModule,
+    TabViewModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

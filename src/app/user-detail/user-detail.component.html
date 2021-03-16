@@ -1,8 +1,27 @@
-<p>user-detail works!</p>
+<div>
+  <p>user-detail works!</p>
+  <div *ngFor="let user of users">
+    <div *ngIf="user.id === userId">
+      <h3>Below are the details of {{ user.name }}:</h3>
+      <!-- <p>
+        <li>User Id: {{ user.id }}</li>
+        <li>User username: {{ user.username }}</li>
+        <li>User email: {{ user.email }}</li>
+        <li>User address: {{ user.address.city }}</li>
+        <li>User phone: {{ user.phone }}</li>
+        <li>User website: {{ user.website }}</li>
+        <li>User company: {{ user.company.name }}</li>
+      </p> -->
 
-<div *ngFor="let user of users">
-  <div *ngIf="user.id === userId">
-    <h3>Below are the details of User Id: {{ user.id }}</h3>
-    <p>{{ user.detail }}</p>
+      <p-tabView>
+        <p-tabPanel header="Id"> {{ user.id }} </p-tabPanel>
+        <p-tabPanel header="User Name"> {{ user.username }} </p-tabPanel>
+        <p-tabPanel header="Email"> {{ user.email }} </p-tabPanel>
+        <p-tabPanel header="Address"> {{ user.address.city }} </p-tabPanel>
+        <p-tabPanel header="Contact"> {{ user.phone }} </p-tabPanel>
+        <p-tabPanel header="Website"> {{ user.website }} </p-tabPanel>
+        <p-tabPanel header="Company"> {{ user.company.name }} </p-tabPanel>
+      </p-tabView>
+    </div>
   </div>
 </div>

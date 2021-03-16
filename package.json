@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && nodemon server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,6 +20,10 @@
     "@angular/platform-browser": "~11.2.3",
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "express": "^4.17.1",
+    "map": "^1.0.1",
     "primeicons": "^4.1.0",
     "primeng": "^11.3.0-rc.1",
     "rxjs": "~6.6.0",

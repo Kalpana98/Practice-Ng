@@ -7,7 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { users } from '../user-list';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -21,7 +21,11 @@ export class UserDetailComponent implements OnInit {
 
   @Output() userNameEmit = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private usersService: UsersService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (
@@ -34,7 +38,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.users = users;
+    this.usersService.getAllUsers().subscribe((users) => {
+      this.users = users;
+    });
 
     // this.route.queryParams.subscribe((params) => {
     //   if (params != null && params.id != null && params.id !== '') {
