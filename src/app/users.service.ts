@@ -12,11 +12,16 @@ import { users } from './user-list';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  getAllUsers(): Observable<users[]> {
-    return this.http.get<users[]>('/routes/users/').pipe(
-      map((users) => {
-        return users;
-      })
-    );
+  getAllUsers(): Observable<any> {
+    return this.http.get('/routes/users/');
   }
+
+  // *****************************Data From API
+  // getAllUsers(): Observable<users[]> {
+  //   return this.http.get<users[]>('/routes/users/').pipe(
+  //     map((users) => {
+  //       return users;
+  //     })
+  //   );
+  // }
 }

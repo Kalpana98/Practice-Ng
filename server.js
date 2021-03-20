@@ -8,6 +8,9 @@ const users = require("./server/routes/users");
 
 app.use(express.static(path.join(__dirname, "dist/project1")));
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use("/routes", users);
 
 app.get("*", (req, res) => {

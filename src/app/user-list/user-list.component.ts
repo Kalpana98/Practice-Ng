@@ -17,7 +17,6 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersService.getAllUsers().subscribe((users) => {
-      // console.log(users);
       this.users = users;
     });
 
@@ -37,8 +36,9 @@ export class UserListComponent implements OnInit {
     ];
   }
 
+  // Deletes data on frontend
   onDelete(id: number) {
-    console.log('Deleted!');
+    console.log(`Deleted Id: ${id}`);
 
     let i = this.users.findIndex((e: any) => e.id === id);
     if (i !== -1) {
@@ -46,15 +46,15 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  onUserClick(id: number): void {
-    this.selectedUserId = +id;
-    // console.log(id);
-  }
-  onUserReceived(users: any) {
-    console.log(users);
-    if (users.id == this.selectedUserId) {
-      // users.pop();
-      // delete users[users.id + 1];
-    }
-  }
+  // onUserClick(id: number): void {
+  //   this.selectedUserId = +id;
+  //   // console.log(id);
+  // }
+  // onUserReceived(users: any) {
+  //   console.log(users);
+  //   if (users.id == this.selectedUserId) {
+  //     // users.pop();
+  //     // delete users[users.id + 1];
+  //   }
+  // }
 }

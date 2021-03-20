@@ -9,12 +9,14 @@
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
       <td *ngFor="let col of columns">
-        <!-- <div *ngIf="col.field === 'name'">
-          <a routerLink="/user-detail" [queryParams]="{ id: rowData['id'] }">{{ rowData[col.field] }}</a>
-        </div> -->
-        <div *ngIf="col.field === 'name'" (click)="onUserClick(rowData['id'])">
-          <a href="javascript:void(0)">{{ rowData[col.field] }}</a>
+        <div *ngIf="col.field === 'name'">
+          <a routerLink="/user-detail" [queryParams]="{ id: rowData['id'] }">{{
+            rowData[col.field]
+          }}</a>
         </div>
+        <!-- <div *ngIf="col.field === 'name'" (click)="onUserClick(rowData['id'])">
+          <a href="javascript:void(0)">{{ rowData[col.field] }}</a>
+        </div> -->
 
         <div *ngIf="col.field != 'name'">
           {{ rowData[col.field] }}
@@ -34,10 +36,10 @@
 
 <br />
 
-<div style="height: 400px; border: 1px solid blue; padding: 3em">
+<!-- <div style="height: 400px; border: 1px solid blue; padding: 3em">
   <app-user-detail
     [userId]="selectedUserId"
     (userNameEmit)="onUserReceived($event)"
   >
   </app-user-detail>
-</div>
+</div> -->

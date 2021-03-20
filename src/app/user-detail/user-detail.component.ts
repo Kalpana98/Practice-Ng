@@ -42,12 +42,12 @@ export class UserDetailComponent implements OnInit {
       this.users = users;
     });
 
-    // this.route.queryParams.subscribe((params) => {
-    //   if (params != null && params.id != null && params.id !== '') {
-    //     console.log(+params.id);
-    //   }
-    // });
+    this.route.queryParams.subscribe((params) => {
+      if (params != null && params.id != null && params.id !== '') {
+        console.log(+params.id);
+      }
+    });
 
-    this.userNameEmit.emit(this.users);
+    // this.userNameEmit.emit(this.users);
   }
 }
