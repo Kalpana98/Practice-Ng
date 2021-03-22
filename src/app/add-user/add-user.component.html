@@ -1,0 +1,82 @@
+<!-- <p>add-user works!</p> -->
+
+<form>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      required
+      [(ngModel)]="model.name"
+      name="name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="username">User Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      [(ngModel)]="model.username"
+      name="username"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      required
+      [(ngModel)]="model.email"
+      name="email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <textarea
+      class="form-control"
+      id="address"
+      rows="3"
+      [(ngModel)]="model.address"
+      name="address"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input
+      type="text"
+      class="form-control"
+      id="phone"
+      [(ngModel)]="model.phone"
+      name="phone"
+    />
+  </div>
+  <div class="form-group">
+    <label for="website">Website</label>
+    <input
+      type="text"
+      class="form-control"
+      id="website"
+      [(ngModel)]="model.website"
+      name="website"
+    />
+  </div>
+  <div class="form-group">
+    <label for="company">Company</label>
+    <input
+      type="text"
+      class="form-control"
+      id="company"
+      [(ngModel)]="model.company"
+      name="company"
+    />
+  </div>
+  <div class="form-group">
+    <button type="button" class="form-control" id="btn" (click)="newUser()">
+      Add New User
+    </button>
+  </div>
+</form>

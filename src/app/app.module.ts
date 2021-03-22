@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -14,6 +15,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TabViewModule } from 'primeng/tabview';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './users.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { UsersService } from './users.service';
     UserDetailComponent,
     NavBarComponent,
     NavBarComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { UsersService } from './users.service';
     MultiSelectModule,
     TabViewModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

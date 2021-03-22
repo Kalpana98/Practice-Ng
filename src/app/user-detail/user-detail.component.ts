@@ -48,6 +48,6 @@ export class UserDetailComponent implements OnInit {
       }
     });
 
-    // this.userNameEmit.emit(this.users);
+    this.userNameEmit.emit(this.users);
   }
 }

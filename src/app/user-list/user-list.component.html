@@ -9,14 +9,15 @@
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
       <td *ngFor="let col of columns">
-        <div *ngIf="col.field === 'name'">
+        <!-- <div *ngIf="col.field === 'name'">
           <a routerLink="/user-detail" [queryParams]="{ id: rowData['id'] }">{{
             rowData[col.field]
           }}</a>
-        </div>
-        <!-- <div *ngIf="col.field === 'name'" (click)="onUserClick(rowData['id'])">
-          <a href="javascript:void(0)">{{ rowData[col.field] }}</a>
         </div> -->
+
+        <div *ngIf="col.field === 'name'" (click)="onUserClick(rowData['id'])">
+          <a href="javascript:void(0)">{{ rowData[col.field] }}</a>
+        </div>
 
         <div *ngIf="col.field != 'name'">
           {{ rowData[col.field] }}
@@ -30,16 +31,38 @@
       (click)="onDelete(rowData['id'])"
       class="p-button-danger p-button-rounded"
     ></button>
+    &nbsp; &nbsp;
     <!-- onDelete(rowData['id'])  onUserReceived($event)-->
+
+    <!-- <button
+      pButton
+      type="button"
+      label="Edit"
+      (click)="onEdit(rowData['id'])"
+      class="p-button-danger p-button-rounded"
+    ></button>
+    <div *ngIf="editSelected">
+      <app-edit-user [userId]="selectedUserId"></app-edit-user>
+    </div>
+    &nbsp; &nbsp; -->
+
+    <!-- <button
+      pButton
+      type="button"
+      label="Add"
+      class="p-button-danger p-button-rounded"
+    >
+      <a href="javascript:void(0)" routerLink="/add-user"></a>
+    </button> -->
   </ng-template>
 </p-table>
 
 <br />
 
-<!-- <div style="height: 400px; border: 1px solid blue; padding: 3em">
+<div style="height: 400px; border: 1px solid blue; padding: 3em">
   <app-user-detail
     [userId]="selectedUserId"
     (userNameEmit)="onUserReceived($event)"
   >
   </app-user-detail>
-</div> -->
+</div>
